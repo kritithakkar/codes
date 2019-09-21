@@ -1,0 +1,28 @@
+
+#include <iostream>
+#include<stdlib.h>
+using namespace std;
+int findSingle(int ar[], int ar_size) 
+    { 
+        // Do XOR of all elements and return 
+        int res = ar[0]; 
+        for (int i = 1; i < ar_size; i++) 
+            res = res ^ ar[i]; 
+  
+        return res; 
+    } 
+  
+int main(int argc,char *argv[])
+{
+int n=atoi(argv[1]);
+int arr[n];
+for(int i=2;i<argc;i++)
+{
+    arr[i-2]=atoi(argv[i]);
+}
+    cout << "Element occurring once is " 
+             << findSingle(arr, n); 
+                 
+        return 0; 
+    } //XOR of a number with itself is 0.
+// XOR of a number with 0 is number itself
