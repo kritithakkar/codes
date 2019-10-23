@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main(int argc,char *argv[])
+{
+    int n=atoi(argv[1]);
+    int arr[n];
+    for(int i=2;i<argc;i++)
+    {
+        arr[i-2]=atoi(argv[i]);
+    }
+    int max=0;
+    for(int i=0;i<n;i++)
+    {
+        int small=arr[i];
+        int count=0;
+        for(int j=i;j<n;j++)
+        {
+            if(small>arr[j])
+            {
+                small=arr[j];
+            }
+            count++;
+            int d=count*small;
+            if(d>max)
+            {
+                max=d;
+            }
+        }
+    }
+    printf("%d",max);
+    return 0;
+}
