@@ -25,3 +25,21 @@ for(int i=0;i<m;i++)
 }
     return 0;
 }
+             or
+   for(int i = 0; i < n; i++)
+    {
+        for(int j = i+1; j < n;j++ )
+        {
+            if(a[j] == a[i])
+            {
+                for(int k = j; k < n; k++)
+                {
+                    a[k] = a[k+1];
+                }
+                n--;
+            }}
+    }
+for(int i=0;i<n;i++)
+{
+    cout<<a[i]<<" ";
+}
