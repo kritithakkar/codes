@@ -1,0 +1,50 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct Node
+{
+    struct Node* next[2];
+    int data;
+};
+struct Node* newNode(int d)
+{
+    struct Node *root=(struct Node*)malloc(sizeof(struct Node));
+    root->data=d;
+    root->next[0]=NULL;
+    root->next[1]=NULL;
+    return root;
+}
+struct Node* construct(struct Node* root,int d)
+{
+    if(root==NULL)
+        return newNode(d);
+        if(d<root->data)
+        root->next[0]=construct(root->next[0],d);
+        else
+        root->next[1]=construct(root->next[1],d);
+        return root;
+}
+void print(struct Node* root)
+{
+    if(root!=NULL)
+    {
+        print(root->next[0]);
+        printf("%d ",root->data);
+        print(root->next[1]);
+    }
+}
+int main(int argc,char* argv[]){
+   int arr[argc-1];
+                        int n=argc-1;
+        for(int i=1;i<=n;i++)
+        {
+           arr[i-1]=atoi(argv[i]);
+        }
+        struct Node* root=NULL;
+        root=construct(root,arr[0]);
+        for(int i=1;i<n;i++)
+        {
+          construct(root,arr[i]);
+        }
+        print(root);
+return 0;
+}
