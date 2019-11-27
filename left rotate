@@ -2,8 +2,8 @@
 #include<stdlib.h>
 int main(int argc,char *argv[])
 {
-    int m=atoi(argv[1]);
-    int n=atoi(argv[2]);
+    int n=atoi(argv[1]);
+    int m=atoi(argv[2]);
     int arr[n];
     for(int i=3;i<argc;i++)
     {
