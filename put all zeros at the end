@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main(int argc,char *argv[])
+{
+    int arr[argc],z=0,n=argc-1,arr1[argc],arr2[argc];
+    for(int i=1;i<argc;i++)
+    {
+        arr[z++]=atoi(argv[i]);
+    }
+    int m=0,f=0;
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]==0)
+        {
+            arr1[m++]=arr[i];
+        }
+        if(arr[i]!=0)
+        {
+            arr2[f++]=arr[i];
+        }
+    }
+    for(int i=0;i<f;i++)
+    {
+        printf("%d ",arr2[i]);
+    }
+    for(int i=0;i<m;i++)
+    {
+        printf("%d ",arr1[i]);
+    }
+    return 0;
+}
