@@ -1,0 +1,28 @@
+int main(int argc,char *argv[])
+{
+    int arr[argc],z=0,n=argc-1;
+    for(int i=1;i<argc;i++)
+    {
+        arr[z++]=atoi(argv[i]);
+    }
+    int index;
+    for(int i=0;i<n;i++)
+    {
+       int max=0,count=0;
+    for(int j=i+1;j<=n;j++)
+    {
+        if(arr[i]==arr[j])
+        {
+            count++;
+        }
+    }
+    int d=count;
+    if(max<d)
+    {
+        max=d;
+        index=i;
+    }
+    }
+    printf("%d",arr[index]);
+    return 0;
+}
