@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<stdlib.h>
+int print(int arr[],int n)
+{
+    int min=0, l=0;
+    for(int i=0;i<n;i++)
+    {
+        l=arr[i]+l;
+        if(l<0)
+        l=0;
+        else if(min<l)
+        min=l;
+    }
+    return min;
+}
+int main(int argc,char *argv[])
+{
+    int n=argc-1;
+    int arr[argc];
+    for(int i=1;i<argc;i++)
+    {
+        arr[i-1]=atoi(argv[i]);
+    }
+    printf("%d",print(arr,n));
+return 0;
+    
+}
