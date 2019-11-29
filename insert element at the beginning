@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    struct node* next;
+};
+void push(struct node **head,int n)
+{
+    struct node* temp=(struct node*)malloc(sizeof(struct node));
+    temp->data=n;
+    temp->next=*head;
+    *head=temp;
+}
+struct node* insertAt(struct node* head,int x)
+{
+    struct node* temp=(struct node*)malloc(sizeof(struct node));
+    temp->data=x;
+    temp->next=head;
+    head=temp;
+    return head;
+}
+void print(struct node* head)
+{
+    while(head!=NULL)
+    {
+        printf("%d ",head->data);
+        head=head->next;
+    }
+}
+int main(int argc,char *argv[])
+{
+    int n;
+    struct node* head=NULL;
+    for(int i=argc-2;i>=1;i--)
+    {
+        n=atoi(argv[i]);
+        push(&head,n);
+    }
+int x=atoi(argv[argc-1]);
+head=insertAt(head,x);
+    print(head);
+    return 0;
+}
