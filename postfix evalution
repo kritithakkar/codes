@@ -1,3 +1,6 @@
+//231*+9-
+//-4
+//-'0' to convert string to number
 #include<iostream>
 #include<stack>
 #include<cstring>
