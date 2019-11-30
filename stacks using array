@@ -1,0 +1,52 @@
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+#define max 1000
+class mystack
+{
+    int top_value=-1;
+    int arr[max];
+    public:
+    void push(int a);
+    int peek();
+    int pop();
+};
+void mystack:: push(int a)
+{
+    if(top_value>=(max-1))
+    cout<<"overflow";
+    else
+    arr[top_value+1]=a;
+    top_value++;
+}
+int mystack::pop()
+{
+    if(top_value<0)
+    cout<<"underflow";
+    else{
+    int a=arr[top_value];
+    top_value--;
+    return a;
+}
+}
+int mystack::peek()
+{
+    return arr[top_value];
+}
+int main(int argc,char *argv[])
+{
+    mystack o1;
+    int n;
+    for(int i=1;i<argc;i++)
+    {
+        n=atoi(argv[i]);
+        o1.push(n);
+    }
+    cout<<"top element without deleting";
+   int m= o1.pop();
+   cout<<m<<endl;
+    cout<<"top element after deleting";
+int o=o1.peek();
+cout<<o;   
+return 0;
+}
