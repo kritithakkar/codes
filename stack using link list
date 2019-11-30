@@ -1,0 +1,61 @@
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+class node
+{
+    int data;
+    node* next;
+    public:
+    void getnode(int a);
+    void pop();
+    void peek();
+    void list();
+};
+node *head=NULL;
+void node:: getnode(int a)
+{
+    node *temp=new node();
+    temp->data=a;
+    temp->next=head;
+    head=temp;
+}
+void node:: pop()
+{
+    node* temp=new node();
+    temp=head;
+    cout<<temp->data;
+    head=temp->next;
+}
+void node::peek()
+{
+    node *temp=new node();
+    temp=head;
+    cout<<temp->data;
+}
+void node:: list()
+{
+    node *temp=new node();
+    temp=head;
+    while(temp->next!=NULL)
+    {
+        cout<<temp->data<<" ";
+        temp=temp->next;
+    }
+cout<<temp->data;
+}
+int main(int argc,char *argv[])
+{
+    node a;
+    int n;
+    for(int i=1;i<argc;i++)
+    {
+        n=atoi(argv[i]);
+        a.getnode(n);
+    }
+    a.list();
+    cout<<endl<<"deleted element ";
+    a.pop();
+    cout<<endl<<"top element ";
+    a.peek();
+    return 0;
+}
