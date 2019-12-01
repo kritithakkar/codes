@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<stdlib.h>
+void swap(int *a,int *b)
+{
+    int temp=*a;
+    *a=*b;
+    *b=temp;
+}
+void rearrange(int arr[],int size)
+{
+    int pos=0,neg=1;
+    while(1)
+    {
+        while(pos<size && arr[pos]>=0)
+        pos+=2;
+        while(neg<size && arr[neg]<=0)
+        neg+=2;
+        if(pos<size && neg<size)
+        swap(&arr[pos],&arr[neg]);
+    else
+    break;
+    }
+}
+int main(int argc,char *argv[])
+{
+    int arr[argc],n=argc-1,k=0;
+    for(int i=1;i<argc;i++)
+    {
+    arr[k++]=atoi(argv[i]);
+    }
+    rearrange(arr,n);
+    for(int i=0;i<n-1;i++)
+    printf("%d ",arr[i]);
+    printf("%d",arr[n-1]);
+    return 0;
+}
