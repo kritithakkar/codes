@@ -1,0 +1,42 @@
+#include<iostream>
+#include<stdlib.h>
+#include<string.h>
+#include<cstring>
+#include<bits/stdc++.h>
+using namespace std;
+int main(int argc,char *argv[])
+{
+    string d=argv[1];
+    string m=argv[2];
+    int l=d.length();
+    int y=m.length();
+    int found=0,f=0;
+    if(l==y)
+    {
+        int q=l;
+        for(int i=0;i<q;i++)
+        {
+            found=0;
+            for(int j=0;j<q;j++)
+            {
+                if(d[i]==m[j])
+                {
+                    found=1;
+                    break;
+                }
+            }
+            if(found==0)
+            {
+                f=1;
+                break;
+            }
+        }
+        if(f==1)
+        cout<<"NO";
+        else
+        cout<<"YES";
+    }
+    else
+    cout<<"NO";
+    return 0;
+}
