@@ -1,0 +1,59 @@
+int main(int argc,char* argv[])
+{#include<iostream>
+#include<stdlib.h>
+using namespace std;
+struct node
+{
+    int data;
+    node *next;
+};
+void push(node **head,int m)
+{
+    node *temp=new node();
+    temp->data=m;
+    temp->next=*head;
+    *head=temp;
+}
+void print(node *head,int n)
+{
+    int count=0;
+    while(head!=NULL)
+    {
+        count++;
+        if(count==n)
+        {
+        if(head->next!=NULL)
+        {
+            cout<<head->data<<" ";
+        }
+        else
+        cout<<head->data<<" ";
+        head=head->next;
+        }
+          else
+        {
+        if(head->next!=NULL)
+        cout<<head->data<<" ";
+        else
+        cout<<head->data;
+        }
+head=head->next;
+    }
+}
+int main(int argc,char* argv[])
+{
+    int n=atoi(argv[1]);
+    int arr[30],c=0;
+    for(int i=2;i<argc;i++)
+    {
+        arr[i-2]=atoi(argv[i]);
+        c++;
+    }
+    struct node* head=NULL;
+    for(int i=c-1;i>=0;i--)
+    {
+        push(&head,arr[i]);
+    }
+   
+    print(head,n);
+}
