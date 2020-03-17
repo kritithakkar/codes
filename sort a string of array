@@ -1,0 +1,27 @@
+import java.util.*;
+import java.lang.*;
+public class Main
+{
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+String[] myArray = {"JavaFX", "HBase", "OpenCV", "Java", "Hadoop", "Neo4j"};
+int s=myArray.length;
+for(int i=0;i<s-1;i++)
+{
+    for(int j=i+1;j<s;j++)
+    {
+        if(myArray[i].compareTo(myArray[j])>0)
+        {
+            String t=myArray[i];
+            myArray[i]=myArray[j];
+            myArray[j]=t;
+        }
+    }
+}
+System.out.println(Arrays.toString(myArray));
+
+or
+Arrays.sort(myArray);
+System.out.println(Arrays.toString(myArray));
+	}
+}
